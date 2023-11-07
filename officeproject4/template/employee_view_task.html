@@ -1,0 +1,37 @@
+{% extends "employee_base.html" %}
+
+
+
+{% block main %}
+  <h5 class="p-2 " style='border-bottom:2px solid orange'>Task Details</h5>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due Date</th>
+          <th>upload</th>
+<!--          <th>Action</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+        <tr>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.due_date }}</td>
+            <th><a href="{% url 'employee_task_submission' task.id %}" class="btn btn-primary active" role="button" aria-pressed="true">Upload</a>
+
+            {% if task.file %}
+                {{ task.file.name }}
+            {% else %}
+              No File Uploaded
+            {% endif %}
+</th>          </td>
+        </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+{% endblock %}

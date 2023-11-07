@@ -1,0 +1,30 @@
+
+
+{% extends "employee_base.html" %}
+
+{% block main %}
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>Leave Application Status</h5>
+
+<table class="table table-bordered">
+        <thead>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Reason</th>
+            <th>Status</th>
+        </tr>
+        {% for leave_request in employee_leave_requests %}
+            <tr>
+                <td>{{ leave_request.start_date }}</td>
+                <td>{{ leave_request.end_date }}</td>
+                <td>{{ leave_request.reason }}</td>
+                <td>{{ leave_request.status }}</td>
+            </tr>
+            {% endfor %}
+        </thead>
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

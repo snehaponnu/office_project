@@ -1,0 +1,37 @@
+{% extends "admin_base.html" %}
+
+{% block main %}
+ <div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>View TaskList</h5>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Assigned To</th>
+        <th>Due Date</th>
+          <th>Uploaded File</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+        <tr>
+          <td>{{ task.title }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.assigned_to }}</td>
+          <td>{{ task.due_date }}</td>
+             <td>
+            {% if task.file %}
+              <a href="{{ task.file.url }}" target="_blank" class="btn btn-success">Download</a>
+            {% else %}
+              No file uploaded
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    </div>
+ </div>
+{% endblock %}

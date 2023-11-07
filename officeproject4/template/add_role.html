@@ -1,0 +1,47 @@
+
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block main %}
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>Add Role</h5>
+        <div class="container-fluid">
+            <form action='add_role' method="post" >
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" id="role" name="role" class="form-control" value="{{role}}" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="department">Department</label>
+                        <select class="form-select" aria-label="Default select example" name="department" id="department">
+                        <option value="" selected></option>
+                        {% for dept in departments %}
+                            <option value="{{ dept.id }}">{{ dept.department }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <br>
+                <input type="submit" value="submit" class="btn btn-primary"></input>
+            </form>
+              {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+            {% endfor %}
+
+                </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

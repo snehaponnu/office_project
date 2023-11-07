@@ -1,0 +1,19 @@
+{% extends 'employee_base.html' %}
+{% load static %}
+{% block main %}
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>Leave Application</h5>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Apply" class="btn btn-primary">
+</form>
+    </div>
+</div>
+ {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                {{msg}}
+            </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "admin_base.html" %}
+
+{% block main %}
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>View Attendence</h5>
+<table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in attendance_records %}
+                <tr>
+                    <td>{{ record.employee }}</td>
+                    <td>{{ record.date }}</td>
+                    <td>{{ record.status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+    </div>
+</div>
+{% endblock %}

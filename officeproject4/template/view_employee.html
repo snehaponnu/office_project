@@ -1,0 +1,53 @@
+
+{% extends 'admin_base.html' %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% block main %}
+<div class="card">
+        <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>View Employee</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">No:</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Bonus</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Role</th>
+      <th scope="col">Department</th>
+<!--      <th scope="col">Location</th>-->
+      <th scope="col">Hiredate</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  {% for emp in emps %}
+  <tbody>
+    <tr>
+      <th scope="row">{{emp.id}}</th>
+      <td>{{emp.first_name}}</td>
+      <td>{{emp.last_name}}</td>
+      <td>{{emp.salary}}</td>
+      <td>{{emp.bonus}}</td>
+      <td>{{emp.phone}}</td>
+      <td>{{emp.role.role}}</td>
+      <td>{{emp.dept.department}}</td>
+      <td>{{emp.hire_date}}</td>
+      <td><a href="{% url 'edit_employee' emp.id %}" class="btn btn-warning " tabindex="-1" role="button" aria-disabled="true">Update</a></td>
+      <td><a href="{% url 'delete_employee' emp.id %}" class="btn btn-danger " tabindex="-1" role="button" aria-disabled="true">Delete</a></td>
+
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% for msg in messages %}
+  <div class="alert alert-success" role="alert">
+          {{msg}}
+  </div>
+{% endfor %}
+        </div>
+</div>
+
+{% endblock %}
+

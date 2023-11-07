@@ -1,0 +1,63 @@
+{% load static %}
+{% include 'base.html' %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--<script>-->
+<!--    function checkpassword()-->
+<!--    {-->
+<!--    if (document.signup.password.value!=document.signup.password1.value)-->
+<!--    {-->
+<!--    alert('password mismatch');-->
+<!--    document.signup.password1.focus();-->
+<!--    return false;-->
+<!--    }-->
+<!--    return true;-->
+<!--    }-->
+<!--</script>-->
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>create an account</h5>
+        <div class="container-fluid">
+            <form action='registration' method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" class="form-control" value="{{first_name}}" required>
+                        </div>
+                        <div class="col">
+                            <label for="first_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" class="form-control" value="{{last_name}}" required>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" class="form-control" value="{{username}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email ID</label>
+                    <input type="email" id="email" name="email" class="form-control" value="{{email}}" required>
+                </div>
+                <div class="row">
+                    <div class="col">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" class="form-control" value="{{password}}" required>
+                        </div>
+                        <div class="col">
+                            <label for="password1">Confirm Password</label>
+                            <input type="password" id="password1" name="password1" class="form-control" value="{{password1}}" required>
+                        </div>
+                    </div><br>
+                <input type="submit" value="submit" class="btn btn-primary"></input>
+            </form>
+                </div>
+
+        </div>
+    </div>
+<script>
+{% for msg in messages %}
+   swal("{{msg}}");
+{% endfor %}
+
+
+    </script>
+{% include 'footer.html' %}

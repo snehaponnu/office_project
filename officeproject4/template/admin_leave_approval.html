@@ -1,0 +1,40 @@
+
+
+{% extends "admin_base.html" %}
+
+{% block main %}
+<div class="card  m-5">
+    <div class="card-body">
+        <h5 class="p-2 " style='border-bottom:2px solid orange'>Leave Application</h5>
+<table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in leave_requests %}
+                <tr>
+                    <td>{{ request.employee.username }}</td>
+                    <td>{{ request.start_date }}</td>
+                    <td>{{ request.end_date }}</td>
+                    <td>{{ request.reason }}</td>
+                    <td>{{ request.status }}</td>
+                    <td>
+                        <a href="{% url 'approve_leave' request.id %}" class="btn btn-success">Approve</a>
+                        <a href="{% url 'reject_leave' request.id %}" class="btn btn-danger">Decline</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

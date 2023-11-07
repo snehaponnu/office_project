@@ -1,0 +1,13 @@
+
+{% extends 'employee_base.html' %}
+{% block main %}
+    <h4 class="text-danger" style="border-bottom:2px solid blue">Employee Dashboard</h4>
+<div class="row-text-center">
+            <div class="col-sm-12">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="text-success" style="text-align:center"><b>Welocome Back To ERMS</b></h4>
+                        <h5 class="text-info" style="text-align:center"><b>{{ request.session.username }}</b></h5>
+                    </div>
+                </div> </div> </div>
+{% endblock %}

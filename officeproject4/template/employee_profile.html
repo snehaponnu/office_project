@@ -1,0 +1,19 @@
+{% extends 'employee_base.html' %}
+
+{% block main %}
+ <div class="card">
+        <div class="card-body">
+        <h5 class="p-0 " style='border-bottom:2px solid orange'>Employee Profile</h5>
+        <div class="container">
+        <p class="p-3 border bg-light"><strong>Name:</strong> {{ form.instance.first_name }} {{ form.instance.last_name }}</p>
+        <p class="p-3 border bg-light"><strong>Department:</strong> {{ form.instance.dept }}</p>
+        <p class="p-3 border bg-light"><strong>Role:</strong> {{ form.instance.role }}</p>
+        <p class="p-3 border bg-light"><strong>Salary:</strong> {{ form.instance.salary }}</p>
+        <p class="p-3 border bg-light"><strong>Bonus:</strong> {{ form.instance.bonus }}</p>
+        <p class="p-3 border bg-light"><strong>Phone:</strong> {{ form.instance.phone }}</p>
+        <p class="p-3 border bg-light"><strong>Hire Date:</strong> {{ form.instance.hire_date }}</p>
+        </div>
+        </div>
+ </div>
+
+{% endblock %}
